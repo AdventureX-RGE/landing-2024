@@ -1,8 +1,15 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import App from './App.vue';
+import router from "@/router";
 
-Vue.config.productionTip = false
+// css
+import "@/fonts/fonts.css";
+import "@/css/global.css";
+
+Vue.use(VueRouter);
 
 new Vue({
   render: h => h(App),
-}).$mount('#app')
+  router
+}).$mount('#app');
