@@ -1,3 +1,6 @@
+:root {
+  --bg-color: rgba(11, 4, 2, 1); }
+
 html,
 body,
 #app {
@@ -14,7 +17,6 @@ body,
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background: #0b0402;
   left: 0;
   top: 0;
   width: 100%;

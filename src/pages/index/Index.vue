@@ -30,9 +30,10 @@ export default {
 #bg-circle {
     position: absolute;
     width: 100%;
-    top: 0;
+    bottom: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: -3;
 }
 </style>

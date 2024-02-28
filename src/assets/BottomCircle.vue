@@ -1,5 +1,5 @@
 <template>
-    <svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <svg v-bind:width="width" v-bind:height="height" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <g filter="url(#filter0_f_49_170)">
             <circle cx="959.601" cy="5905.6" r="5000" fill="#199EFF"/>
         </g>
@@ -44,7 +44,17 @@
 
 <script>
 export default {
-    name: "BottomCircleComp"
+    name: "BottomCircleComp",
+    props: {
+        width: {
+            type: Number,
+            default: 1920,
+        },
+        height: {
+            type: Number,
+            default: 1080,
+        }
+    }
 }
 </script>
 

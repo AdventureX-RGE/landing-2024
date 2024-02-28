@@ -11,8 +11,11 @@
 <script>
 export default {
     name: "LogoComp",
-    props: [
-        'side'
-    ]
+    props: {
+        side: {
+            type: Number,
+            default: 256
+        }
+    }
 }
 </script>

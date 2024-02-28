@@ -1,9 +1,10 @@
 <template>
 <div id="container" class="container">
-    <div id="head">
-        <LogoComp side="128"/>
-        <h1 id="catchword">重新将创造变为与世界对抗的武器 &nbsp; :)</h1>
+    <div class="head" style="order: 2">
+        <LogoComp :side="128"/>
+        <h1 class="catchword">重新将创造变为与世界对抗的武器 &nbsp; :)</h1>
     </div>
+    <div class="head-bg container"></div>
 </div>
 </template>
 
@@ -28,15 +29,29 @@ export default {
     align-items: center;
 }
 
-#head {
+.head {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.head-animation {
     animation: head-respiration 3s ease infinite;
 }
 
-#catchword {
+.head-bg {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--bg-color);
+    mix-blend-mode: multiply;
+    z-index: -1;
+    animation: head-bg-respiration 5s ease infinite;
+}
+
+.catchword {
     font-family: "Smiley Sans", serif;
     font-style: italic;
     font-weight: bolder;
@@ -49,5 +64,11 @@ export default {
     0% { opacity: .6 }
     50% { opacity: .8 }
     100% { opacity: .6 }
+}
+
+@keyframes head-bg-respiration {
+    0% { opacity: 1 }
+    50% { opacity: .5 }
+    100% { opacity: 1 }
 }
 </style>
