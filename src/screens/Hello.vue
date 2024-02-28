@@ -1,7 +1,7 @@
 <template>
 <div id="container" class="container">
     <div class="head">
-        <LogoComp :side="128"/>
+        <LogoComp/>
         <h1 class="catchword">重新将创造变为与世界对抗的武器 &nbsp; :)</h1>
     </div>
 </div>
@@ -42,7 +42,6 @@ export default {
     font-weight: bolder;
     //font-size: 64px;
     line-height: 77px;
-    color: rgba(255, 255, 255, 1);
 }
 
 @keyframes head-respiration {

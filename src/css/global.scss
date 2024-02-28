@@ -26,6 +26,8 @@ body,
   height: 100%;
   padding: 0;
   margin: 0;
+  color: rgba(255, 255, 255, 1);
+  user-select: none;
 }
 
 .container {
@@ -38,5 +40,17 @@ body,
 
 .bottom-bt {
   position: absolute;
-  bottom: 1%;
+  bottom: 2%;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.bottom-bt-bounce-animation {
+  animation: bottom-bt-bounce 1s ease-in-out infinite;
+}
+
+@keyframes bottom-bt-bounce {
+  0% { bottom: 2% }
+  50% { bottom: 2.5% }
+  100% { bottom: 2% }
 }

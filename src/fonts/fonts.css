@@ -6,3 +6,10 @@
         url("@/fonts/smiley-sans-v2.0.1/SmileySans-Oblique.ttf") format("truetype"),
         url("@/fonts/smiley-sans-v2.0.1/SmileySans-Oblique.ttf.woff2") format("woff");
 }
+
+@font-face {
+    font-family: "Dune Rise";
+    font-face-name: "Dune Rise";
+    src: url("@/fonts/dune-rise/Dune_Rise.otf") format("opentype"),
+        url("@/fonts/dune-rise/Dune_Rise.ttf") format("truetype");
+}

@@ -1,28 +1,51 @@
 <template>
-<div class="container">
+<div id="outer-container" class="container">
     <div id="container" class="container">
-        <HelloScreen/>
+        <component :is="screens[screenIndex].screen"/>
     </div>
-    <BottomCircleComp/>
+    <DownwardButtonComp :action="nextScreen" class="bottom-bt bottom-bt-bounce-animation" id="downward-bt"/>
+    <div v-for="bg in this.screens[this.screenIndex].bg" v-bind:key="bg.name" id="bg-container">
+        <component :is="bg"/>
+    </div>
 </div>
 </template>
 
 <script>
-import HelloScreen from "@/components/Hello.vue";
+import HelloScreen from "@/screens/Hello.vue";
+import MainScreen from "@/screens/Main.vue";
 import BottomCircleComp from "@/assets/BottomCircleComp.vue";
-
-function nextPageEvent() {
-
-}
+import BottomRightCircleComp from "@/assets/BottomRightCircleComp.vue";
+import DownwardButtonComp from "@/assets/DownwardButton.vue";
 
 export default {
     name: "IndexPage",
-    components: {
-        BottomCircleComp,
-        HelloScreen
+    data() {
+        return {
+            screens: [
+                {
+                    screen: HelloScreen,
+                    bg: [BottomCircleComp],
+                },
+                {
+                    screen: MainScreen,
+                    bg: [BottomRightCircleComp],
+                },
+            ],
+            screenIndex: 0,
+        }
     },
-    mounted() {
-        nextPageEvent();
+    components: {
+        DownwardButtonComp,
+        BottomRightCircleComp,
+        BottomCircleComp,
+    },
+    methods: {
+        nextScreen() {
+            this.screenIndex = Math.min(this.screenIndex + 1, this.screens.length);
+            if (this.screenIndex === this.screens.length - 1 ) {
+                document.getElementById('downward-bt').style.display = 'none';
+            }
+        },
     }
 }
 </script>
@@ -33,5 +56,13 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+#bg-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
 }
 </style>

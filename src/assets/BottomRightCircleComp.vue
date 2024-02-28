@@ -1,15 +1,16 @@
 <template>
     <div id="bg-circle">
-        <BottomCircle></BottomCircle>
+        <BottomRightCircle/>
     </div>
 </template>
 
 <script>
-import BottomCircle from "@/assets/BottomCircle.vue";
+
+import BottomRightCircle from "@/assets/BottomRightCircle.vue";
 
 export default {
-    name: "BottomCircleComp",
-    components: {BottomCircle}
+    name: "BottomRightCircleComp",
+    components: {BottomRightCircle},
 }
 </script>
 

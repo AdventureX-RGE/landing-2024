@@ -22,7 +22,9 @@ body,
   width: 100%;
   height: 100%;
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  color: white;
+  user-select: none; }
 
 .container {
   display: flex;
@@ -33,6 +35,19 @@ body,
 
 .bottom-bt {
   position: absolute;
-  bottom: 1%; }
+  bottom: 2%;
+  cursor: pointer;
+  z-index: 1; }
+
+.bottom-bt-bounce-animation {
+  animation: bottom-bt-bounce 1s ease-in-out infinite; }
+
+@keyframes bottom-bt-bounce {
+  0% {
+    bottom: 2%; }
+  50% {
+    bottom: 2.5%; }
+  100% {
+    bottom: 2%; } }
 
 /*# sourceMappingURL=global.css.map */
