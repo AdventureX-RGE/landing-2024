@@ -44,20 +44,16 @@
 
 <script>
 export default {
-    name: "BottomCircleComp",
+    name: "BottomCircle",
     props: {
         width: {
             type: Number,
-            default: 1920,
+            default: 11201,
         },
         height: {
             type: Number,
-            default: 1080,
+            default: 11201,
         }
     }
 }
 </script>
-
-<style scoped>
-
-</style>

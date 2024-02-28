@@ -1,10 +1,9 @@
 <template>
 <div id="container" class="container">
-    <div class="head" style="order: 2">
+    <div class="head">
         <LogoComp :side="128"/>
         <h1 class="catchword">重新将创造变为与世界对抗的武器 &nbsp; :)</h1>
     </div>
-    <div class="head-bg container"></div>
 </div>
 </template>
 
@@ -34,21 +33,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.head-animation {
-    animation: head-respiration 3s ease infinite;
-}
-
-.head-bg {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: var(--bg-color);
-    mix-blend-mode: multiply;
-    z-index: -1;
-    animation: head-bg-respiration 5s ease infinite;
+    animation: head-respiration 3s ease-in-out infinite;
 }
 
 .catchword {
@@ -61,14 +46,8 @@ export default {
 }
 
 @keyframes head-respiration {
-    0% { opacity: .6 }
-    50% { opacity: .8 }
-    100% { opacity: .6 }
-}
-
-@keyframes head-bg-respiration {
-    0% { opacity: .8 }
-    50% { opacity: .4 }
-    100% { opacity: .8 }
+    0% { opacity: .9 }
+    50% { opacity: .5 }
+    100% { opacity: .9 }
 }
 </style>
