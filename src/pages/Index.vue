@@ -11,9 +11,9 @@
 <script>
 import HelloScreen from "@/screens/Hello.vue";
 import MainScreen from "@/screens/Main.vue";
-import BottomCircleComp from "@/assets/BottomCircleComp.vue";
-import BottomRightCircleComp from "@/assets/BottomRightCircleComp.vue";
-import DownwardButtonComp from "@/assets/DownwardButton.vue";
+import BottomCircleComp from "@/assets/bottomCircle/BottomCircleComp.vue";
+import BottomRightCircleComp from "@/assets/bottomRightCircle/BottomRightCircleComp.vue";
+import DownwardButtonComp from "@/components/DownwardButton.vue";
 import DragonComp from "@/assets/dragon/Dragon.vue";
 import PersonComp from "@/assets/person/Person.vue";
 import CloudComp from "@/assets/cloud/Cloud.vue";
