@@ -44,7 +44,7 @@
 
 <script>
 export default {
-    name: "BottomCircle",
+    name: "BottomCircleData",
     props: {
         width: {
             type: Number,

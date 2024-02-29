@@ -1,27 +1,14 @@
 <template>
-    <div id="bg-circle">
-        <BottomCircle></BottomCircle>
+    <div class="bg bg-circle">
+        <BottomCircleData/>
     </div>
 </template>
 
 <script>
-import BottomCircle from "@/assets/BottomCircle.vue";
+import BottomCircleData from "@/assets/BottomCircle.vue";
 
 export default {
     name: "BottomCircleComp",
-    components: {BottomCircle}
+    components: {BottomCircleData}
 }
 </script>
-
-<style scoped>
-#bg-circle {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: -1;
-    mask-image: linear-gradient(transparent, transparent, var(--bg-color));
-}
-</style>

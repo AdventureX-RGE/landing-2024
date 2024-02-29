@@ -49,5 +49,24 @@ body,
     bottom: 2.5%; }
   100% {
     bottom: 2%; } }
+.bg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: -1; }
+
+.bg-circle {
+  mask-image: linear-gradient(transparent, transparent, var(--bg-color)); }
+
+.bg img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  object-fit: cover; }
 
 /*# sourceMappingURL=global.css.map */

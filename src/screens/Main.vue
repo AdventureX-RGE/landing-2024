@@ -26,8 +26,8 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 10%;
-    height: 5%;
+    width: 8%;
+    height: 3%;
     background: rgba(51, 45, 35, 1);
     border: rgba(204, 152, 62, 1) 2px solid;
     border-radius: 10px;
@@ -35,6 +35,7 @@ export default {
     margin-top: 3%;
     transition: .3s ease-in-out;
     font-family: "PingFang SC", serif;
+    padding: 10px;
     z-index: 1;
 }
 

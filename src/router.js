@@ -1,5 +1,5 @@
-import Index from "@/pages/index/Index.vue";
-import About from "@/pages/about/About.vue";
+import Index from "@/pages/Index.vue";
+import About from "@/pages/About.vue";
 import VueRouter from "vue-router";
 
 const routes = [

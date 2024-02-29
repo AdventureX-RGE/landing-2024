@@ -44,7 +44,7 @@
 
 <script>
 export default {
-    name: "BottomRightCircle"
+    name: "BottomRightCircleData"
 }
 </script>
 

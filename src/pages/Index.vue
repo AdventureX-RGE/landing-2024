@@ -4,9 +4,7 @@
         <component :is="screens[screenIndex].screen"/>
     </div>
     <DownwardButtonComp :action="nextScreen" class="bottom-bt bottom-bt-bounce-animation" id="downward-bt"/>
-    <div v-for="bg in this.screens[this.screenIndex].bg" v-bind:key="bg.name" id="bg-container">
-        <component :is="bg"/>
-    </div>
+    <component :is="bg" v-for="bg in this.screens[this.screenIndex].bg" v-bind:key="bg.name"/>
 </div>
 </template>
 
@@ -16,6 +14,9 @@ import MainScreen from "@/screens/Main.vue";
 import BottomCircleComp from "@/assets/BottomCircleComp.vue";
 import BottomRightCircleComp from "@/assets/BottomRightCircleComp.vue";
 import DownwardButtonComp from "@/assets/DownwardButton.vue";
+import DragonComp from "@/assets/dragon/Dragon.vue";
+import PersonComp from "@/assets/person/Person.vue";
+import CloudComp from "@/assets/cloud/Cloud.vue";
 
 export default {
     name: "IndexPage",
@@ -28,7 +29,7 @@ export default {
                 },
                 {
                     screen: MainScreen,
-                    bg: [BottomRightCircleComp],
+                    bg: [PersonComp, DragonComp, BottomRightCircleComp, CloudComp],
                 },
             ],
             screenIndex: 0,
@@ -36,8 +37,6 @@ export default {
     },
     components: {
         DownwardButtonComp,
-        BottomRightCircleComp,
-        BottomCircleComp,
     },
     methods: {
         nextScreen() {
@@ -56,13 +55,5 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-#bg-container {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
 }
 </style>
