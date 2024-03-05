@@ -60,7 +60,8 @@ body,
   z-index: -1; }
 
 .bg-circle {
-  mask-image: linear-gradient(transparent, transparent, var(--bg-color)); }
+  mask-image: linear-gradient(transparent, 75%, var(--bg-color));
+  filter: brightness(125%); }
 
 .bg img {
   position: absolute;

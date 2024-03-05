@@ -33,14 +33,15 @@ export default {
     border-radius: 10px;
     cursor: pointer;
     margin-top: 3%;
-    transition: .3s ease-in-out;
+    transition: background-color .3s ease-in-out;
     font-family: "PingFang SC", serif;
     padding: 10px;
     z-index: 1;
+    will-change: background-color;
 }
 
 #start-bt:hover {
-    background: rgba(102, 90, 70, 1);
+    background-color: rgba(102, 90, 70, 1);
 }
 
 #sub-info {
@@ -52,14 +53,17 @@ export default {
 }
 
 #info-box {
+    position: absolute;
+    top: -15%;
     width: 100%;
     height: 100%;
-    padding-left: 10%;
-    display: flex;
+    padding-left: 15%;
     flex-direction: column;
     gap: 3%;
     justify-content: center;
     align-items: flex-start;
+    display: inline-flex;
+    flex-shrink: 0;
 }
 
 #title {
