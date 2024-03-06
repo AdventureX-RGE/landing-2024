@@ -2,17 +2,21 @@
 <div id="container" class="container">
     <div class="head">
         <LogoComp/>
-        <h1 class="catchword">重新将创造变为与世界对抗的武器 &nbsp; :)</h1>
+        <div class="catchword">
+            <CatchWordComp/>
+        </div>
     </div>
 </div>
 </template>
 
 <script>
 import LogoComp from "@/assets/Logo.vue";
+import CatchWordComp from "@/assets/CatchWord.vue";
 
 export default {
     name: "HelloScreen",
     components: {
+        CatchWordComp,
         LogoComp
     }
 }
@@ -37,11 +41,8 @@ export default {
 }
 
 .catchword {
-    font-family: "Smiley Sans", serif;
-    font-style: italic;
-    font-weight: bolder;
-    //font-size: 64px;
-    line-height: 77px;
+    width: 460px;
+    padding-top: 10%;
 }
 
 @keyframes head-respiration {
