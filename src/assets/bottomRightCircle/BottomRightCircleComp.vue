@@ -1,6 +1,6 @@
 <template>
-    <div class="bg bg-circle">
-        <img src="@/assets/bottomRightCircle/bottomRightCircle.png" alt="">
+    <div class="bg bg-circle bg-fade-in">
+        <img src="@/assets/bottomRightCircle/bottomRightCircle.webp" alt="">
     </div>
 </template>
 

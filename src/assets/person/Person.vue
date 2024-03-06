@@ -1,6 +1,6 @@
 <template>
-    <div class="bg">
-        <img src="@/assets/person/person.png" alt="">
+    <div class="bg bg-fade-in bg-fade-in-delay-1">
+        <img src="@/assets/person/person.webp" alt="">
     </div>
 </template>
 

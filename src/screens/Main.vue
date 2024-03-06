@@ -2,7 +2,9 @@
 <div class="container">
     <LogoMenuBarComp/>
     <div id="info-box">
-        <span id="title">ADVENTURE X</span>
+        <span id="title">
+            <TitleComp/>
+        </span>
         <div style="width: 10%">
             <hr/>
         </div>
@@ -14,10 +16,11 @@
 
 <script>
 import LogoMenuBarComp from "@/components/LogoMenuBar.vue";
+import TitleComp from "@/assets/Title.vue";
 
 export default {
     name: "MainScreen",
-    components: {LogoMenuBarComp}
+    components: {TitleComp, LogoMenuBarComp}
 }
 </script>
 
@@ -67,10 +70,7 @@ export default {
 }
 
 #title {
-    font-family: "Dune Rise", serif;
-    font-size: xxx-large;
-    font-weight: 400;
-    //line-height: 74px;
+    width: 460px;
     text-align: left;
     color: rgba(255, 199, 102, 1);
 }

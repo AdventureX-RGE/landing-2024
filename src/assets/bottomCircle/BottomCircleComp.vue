@@ -1,11 +1,11 @@
 <template>
-    <div class="bg bg-circle">
-        <img src="@/assets/bottomCircle/bottomCircle.png" alt="">
+    <div class="bg bg-circle" id="container">
+        <img src="@/assets/bottomCircle/bottomCircle.webp" alt="">
     </div>
 </template>
 
 <script>
 export default {
-    name: "BottomCircleComp",
+    name: "BottomCircleComp"
 }
 </script>
