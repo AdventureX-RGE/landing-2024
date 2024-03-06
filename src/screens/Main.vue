@@ -54,7 +54,7 @@ export default {
     font-weight: 400;
     //line-height: 62px;
     text-align: left;
-    font-size: 34px;
+    font-size: 30px;
 }
 
 #info-box {
