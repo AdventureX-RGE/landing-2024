@@ -38,6 +38,7 @@ export default {
     margin-top: 3%;
     transition: background-color .3s ease-in-out;
     font-family: "PingFang SC", serif;
+    font-size: 24px;
     padding: 10px;
     z-index: 1;
     will-change: background-color;
@@ -49,10 +50,11 @@ export default {
 
 #sub-info {
     font-family: "PingFang SC", serif;
-    font-size: large;
+    //font-size: large;
     font-weight: 400;
     //line-height: 62px;
     text-align: left;
+    font-size: 44px;
 }
 
 #info-box {
