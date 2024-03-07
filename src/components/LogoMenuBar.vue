@@ -1,29 +1,32 @@
 <template>
-<div id="container" @mouseenter="mouseEnter" @mouseleave="mouseLeave">
-    <LogoComp :size="32" id="logo" class="item"/>
-    <div class="item">
-        关于AdventureX
+<div id="container">
+    <div class="item" id="logo">
+        <LogoLinkComp/>
     </div>
     <div class="item">
-        合作伙伴
+        <LinkComp to="about-adx" title="关于AdventureX"/>
     </div>
     <div class="item">
-        关于团体
+        <LinkComp to="friends" title="合作伙伴"/>
     </div>
     <div class="item">
-        FAQ
+        <LinkComp to="about-team" title="关于团体"/>
+    </div>
+    <div class="item">
+        <LinkComp to="faq" title="FAQ"/>
     </div>
 </div>
 </template>
 
 <script>
-import LogoComp from "@/assets/Logo.vue";
+import LinkComp from "@/components/Link.vue";
+import LogoLinkComp from "@/components/LogoLink.vue";
 
 export default {
     name: "LogoMenuBarComp",
-    components: {LogoComp},
+    components: {LogoLinkComp, LinkComp},
     mounted() {
-        this.mouseLeave();
+        // this.mouseLeave();
     },
     methods: {
         mouseEnter() {
@@ -37,6 +40,7 @@ export default {
             document.querySelectorAll('.item').forEach((ele) => {
                 if (ele.id !== "logo") {
                     ele.style.display = 'none';
+                    console.log(ele.id);
                 }
             });
         }
@@ -53,15 +57,17 @@ export default {
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    transition: 1s ease-in-out;
 }
 
 #logo {
-    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .item {
     z-index: 1;
     padding: 0 2%;
+    list-style-type: none;
 }
 </style>

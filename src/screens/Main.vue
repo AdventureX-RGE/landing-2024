@@ -1,5 +1,5 @@
 <template>
-<div class="container">
+<div class="container fade-in">
     <LogoMenuBarComp/>
     <div id="info-box">
         <span id="title">

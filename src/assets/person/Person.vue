@@ -1,5 +1,5 @@
 <template>
-    <div class="bg bg-fade-in bg-fade-in-delay-1">
+    <div class="bg fade-in fade-in-delay-1">
         <img src="@/assets/person/person.webp" alt="">
     </div>
 </template>

@@ -1,11 +1,11 @@
 <template>
 <span>
-    About Page
+    About AdventureX
 </span>
 </template>
 
 <script>
 export default {
-    name: "AboutPage"
+    name: "AboutAdxPage"
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <div class="bg bg-circle bg-fade-in">
+    <div class="bg bg-circle fade-in">
         <img src="@/assets/bottomRightCircle/bottomRightCircle.webp" alt="">
     </div>
 </template>

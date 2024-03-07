@@ -1,6 +1,9 @@
-import Index from "@/pages/Index.vue";
-import About from "@/pages/About.vue";
 import VueRouter from "vue-router";
+import Index from "@/pages/Index.vue";
+import Friends from "@/pages/Friends.vue";
+import AboutAdx from "@/pages/AboutAdx.vue";
+import AboutTeam from "@/pages/AboutTeam.vue";
+import FAQ from "@/pages/FAQ.vue";
 
 const routes = [
     {
@@ -8,8 +11,20 @@ const routes = [
         component: Index
     },
     {
-        path: '/about',
-        component: About
+        path: '/about-adx',
+        component: AboutAdx
+    },
+    {
+        path: '/friends',
+        component: Friends
+    },
+    {
+        path: '/about-team',
+        component: AboutTeam
+    },
+    {
+        path: '/faq',
+        component: FAQ,
     }
 ];
 
