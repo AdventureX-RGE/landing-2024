@@ -36,7 +36,7 @@ export default {
                 },
                 {
                     screen: MainScreen,
-                    bg: [PersonComp, DragonComp, BottomRightCircleComp, CloudComp],
+                    bg: [PersonComp, DragonComp, CloudComp, BottomRightCircleComp],
                 },
             ],
             screenIndex: 0,
