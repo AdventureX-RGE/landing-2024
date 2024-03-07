@@ -40,16 +40,47 @@ export default {
                 },
             ],
             screenIndex: 0,
+            handlers: [
+                {
+                    type: "keydown",
+                    handler: this.handleSpaceNextScreen
+                },
+                {
+                    type: "wheel",
+                    handler: this.handleScrollNextScreen
+                }
+            ]
         }
     },
     components: {
         DownwardButtonComp,
     },
+    mounted() {
+        this.handlers.forEach((h) => {
+            window.addEventListener(h.type, h.handler);
+        });
+    },
+    beforeDestroy() {
+        this.handlers.forEach((h) => {
+            window.removeEventListener(h.type, h.handler);
+        });
+    },
     methods: {
         nextScreen() {
-            this.screenIndex = Math.min(this.screenIndex + 1, this.screens.length);
+            this.screenIndex = Math.min(this.screenIndex + 1, this.screens.length - 1);
             if (this.screenIndex === this.screens.length - 1 ) {
                 document.getElementById('downward-bt').style.display = 'none';
+            }
+        },
+        handleSpaceNextScreen(event) {
+            if (event.key === " ") {
+                this.nextScreen();
+            }
+        },
+        handleScrollNextScreen(event){
+            let downward = event.deltaY > 0;
+            if (downward && event.deltaY >= 25) {
+                this.nextScreen();
             }
         },
     }
