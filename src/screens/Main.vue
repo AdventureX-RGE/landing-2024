@@ -40,7 +40,7 @@ export default {
     margin-top: 3%;
     transition: background-color .3s ease-in-out;
     font-family: "PingFang SC", serif;
-    font-size: 14px;
+    font-size: 18px;
     padding: 10px;
     z-index: 1;
     will-change: background-color;
@@ -59,7 +59,7 @@ export default {
     font-weight: 400;
     //line-height: 62px;
     text-align: left;
-    font-size: 25px;
+    font-size: 28px;
 }
 
 #info-box {
