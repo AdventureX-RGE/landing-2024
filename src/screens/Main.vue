@@ -5,11 +5,13 @@
         <span id="title">
             <TitleComp/>
         </span>
-        <div style="width: 10%">
+        <div style="width: 6%">
             <hr/>
         </div>
         <span id="sub-info">中国·杭州 2024.7.15-7.19</span>
-        <div id="start-bt">开启变革</div>
+        <a href="/login" id="start-bt">
+            <span>开启变革</span>
+        </a>
     </div>
 </div>
 </template>
@@ -29,8 +31,8 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 8%;
-    height: 3%;
+    width: 7%;
+    height: 2%;
     background: rgba(51, 45, 35, 1);
     border: rgba(204, 152, 62, 1) 2px solid;
     border-radius: 10px;
@@ -38,10 +40,13 @@ export default {
     margin-top: 3%;
     transition: background-color .3s ease-in-out;
     font-family: "PingFang SC", serif;
-    font-size: 20px;
+    font-size: 14px;
     padding: 10px;
     z-index: 1;
     will-change: background-color;
+    text-decoration: none;
+    outline: none;
+    color: var(--front-color);
 }
 
 #start-bt:hover {
@@ -54,7 +59,7 @@ export default {
     font-weight: 400;
     //line-height: 62px;
     text-align: left;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 #info-box {
