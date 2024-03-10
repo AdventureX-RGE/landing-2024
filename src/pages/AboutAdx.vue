@@ -1,11 +1,15 @@
 <template>
-<span>
+<div class="container">
+    <LogoMenuBarComp/>
     About AdventureX
-</span>
+</div>
 </template>
 
 <script>
+import LogoMenuBarComp from "@/components/LogoMenuBar.vue";
+
 export default {
-    name: "AboutAdxPage"
+    name: "AboutAdxPage",
+    components: {LogoMenuBarComp}
 }
 </script>

@@ -1,12 +1,16 @@
 <template>
-<div>
+<div class="container">
+    <LogoMenuBarComp/>
     About Team
 </div>
 </template>
 
 <script>
+import LogoMenuBarComp from "@/components/LogoMenuBar.vue";
+
 export default {
-    name: "AboutTeamPage"
+    name: "AboutTeamPage",
+    components: {LogoMenuBarComp}
 }
 </script>
 
