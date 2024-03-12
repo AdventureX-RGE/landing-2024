@@ -29,6 +29,25 @@ body,
   color: white;
   user-select: none; }
 
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease; }
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0; }
+
+.abs-max-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%; }
+
 .container {
   display: flex;
   justify-content: center;
@@ -72,6 +91,9 @@ body,
 .bg-circle {
   mask-image: linear-gradient(transparent, 75%, var(--bg-color));
   filter: brightness(150%); }
+
+.z-bg {
+  z-index: -1; }
 
 .fade-in {
   opacity: 0;

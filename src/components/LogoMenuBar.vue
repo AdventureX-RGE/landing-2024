@@ -69,5 +69,6 @@ export default {
     z-index: 1;
     padding: 0 2%;
     list-style-type: none;
+    display: none;
 }
 </style>

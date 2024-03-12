@@ -4,12 +4,24 @@
         <component :is="screens[screenIndex].screen"/>
     </div>
     <DownwardButtonComp :action="nextScreen" class="bottom-bt bottom-bt-bounce-animation" id="downward-bt"/>
-    <component :is="bg" v-for="bg in this.screens[this.screenIndex].bg" v-bind:key="bg.name"/>
 
-    <!--隐藏的预加载内容-->
-    <div v-for="(screen, index) in this.screens" v-bind:key="screen.screen.name" class="hidden">
-        <div v-for="bg in screen.bg" v-bind:key="bg.name">
-            <component :is="bg" v-if="index !== screenIndex"/>
+    <div v-for="(screen, index) in this.screens" :key="screen.screen.name" class="abs-max-container z-bg">
+        <div v-if="index === screenIndex">
+            <component
+                v-for="bg in screen.bg"
+                :is="bg"
+                :id="bg.name"
+                :key="bg.name"
+            />
+        </div>
+        <div v-else>
+            <component
+                v-for="bg in screen.bg"
+                :is="bg"
+                :id="bg.name"
+                :key="bg.name"
+                class="hidden"
+            />
         </div>
     </div>
 </div>
@@ -48,6 +60,10 @@ export default {
                 {
                     type: "wheel",
                     handler: this.handleScrollNextScreen
+                },
+                {
+                    type: "load",
+                    handler: this.finishLoading
                 }
             ]
         }
@@ -56,6 +72,7 @@ export default {
         DownwardButtonComp,
     },
     mounted() {
+        document.getElementById('downward-bt').style.display = 'none';
         this.handlers.forEach((h) => {
             window.addEventListener(h.type, h.handler);
         });
@@ -77,12 +94,15 @@ export default {
                 this.nextScreen();
             }
         },
-        handleScrollNextScreen(event){
+        handleScrollNextScreen(event) {
             let downward = event.deltaY > 0;
             if (downward && event.deltaY >= 25) {
                 this.nextScreen();
             }
         },
+        finishLoading() {
+            this.nextScreen();
+        }
     }
 }
 </script>
