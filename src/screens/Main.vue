@@ -51,7 +51,7 @@ export default {
 
 #bt-text {
     font-family: "PingFang SC", serif;
-    font-size: 15px;
+    font-size: 18px;
     padding: 3px 15px;
 }
 
