@@ -10,7 +10,7 @@
         </div>
         <span id="sub-info">中国·杭州 2024.7.15-7.19</span>
         <a href="/login" id="start-bt">
-            <span>开启变革</span>
+            <span id="bt-text">开启变革</span>
         </a>
     </div>
 </div>
@@ -31,16 +31,12 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 7%;
-    height: 2%;
     background: rgba(51, 45, 35, 1);
     border: rgba(204, 152, 62, 1) 2px solid;
-    border-radius: 10px;
+    border-radius: 15px;
     cursor: pointer;
     margin-top: 3%;
     transition: background-color .3s ease-in-out;
-    font-family: "PingFang SC", serif;
-    font-size: 18px;
     padding: 10px;
     z-index: 1;
     will-change: background-color;
@@ -53,11 +49,15 @@ export default {
     background-color: rgba(102, 90, 70, 1);
 }
 
+#bt-text {
+    font-family: "PingFang SC", serif;
+    font-size: 15px;
+    padding: 3px 15px;
+}
+
 #sub-info {
     font-family: "PingFang SC", serif;
-    //font-size: large;
     font-weight: 400;
-    //line-height: 62px;
     text-align: left;
     font-size: 28px;
 }

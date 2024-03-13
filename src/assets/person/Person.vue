@@ -1,7 +1,5 @@
 <template>
-    <div class="bg fade-in fade-in-delay-1" id="img-container">
-<!--        <img class="pos-right" src="@/assets/person/person.webp" alt="">-->
-    </div>
+    <div class="bg fade-in fade-in-delay-1" id="img-container"/>
 </template>
 
 <script>
@@ -17,5 +15,6 @@ export default {
     background-position-y: bottom;
     background-position-x: right;
     overflow: visible;
+    transform: translateY(2%);
 }
 </style>
