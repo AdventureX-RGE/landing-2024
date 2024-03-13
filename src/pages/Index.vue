@@ -7,21 +7,19 @@
 
     <div v-for="(screen, index) in this.screens" :key="screen.screen.name" class="abs-max-container z-bg">
         <div v-if="index === screenIndex">
-            <component
-                v-for="bg in screen.bg"
-                :is="bg"
-                :id="bg.name"
-                :key="bg.name"
-            />
+            <div v-for="bg in screen.bg" :id="bg.name" :key="bg.name">
+                <component
+                    :is="bg"
+                    :key="bg.name"
+                />
+            </div>
         </div>
         <div v-else>
-            <component
-                v-for="bg in screen.bg"
-                :is="bg"
-                :id="bg.name"
-                :key="bg.name"
-                class="hidden"
-            />
+            <div v-for="bg in screen.bg" :id="bg.name" :key="bg.name" class="hidden">
+                <component
+                    :is="bg"
+                />
+            </div>
         </div>
     </div>
 </div>
@@ -65,13 +63,28 @@ export default {
                     type: "load",
                     handler: this.finishLoading
                 }
-            ]
+            ],
+            cookies: {
+                hello: "displayHelloTime"
+            },
+            showHello: true
         }
     },
     components: {
         DownwardButtonComp,
     },
+    beforeMount() {
+        if (this.$cookies.isKey(this.cookies.hello)) {
+            this.showHello = false;
+        } else {
+            this.$cookies.set(this.cookies.hello, Date.now(), '1d');
+            this.showHello = true;
+        }
+    },
     mounted() {
+        if (!this.showHello) {
+            this.nextScreen();
+        }
         document.getElementById('downward-bt').style.display = 'none';
         this.handlers.forEach((h) => {
             window.addEventListener(h.type, h.handler);

@@ -1,13 +1,16 @@
 <template>
     <div id="app">
-        <router-view></router-view>
+        <router-view/>
         <div id="bg" class="container"></div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'App'
+    name: 'App',
+    beforeCreate() {
+        this.$cookies.config("1d");
+    }
 }
 </script>
 
