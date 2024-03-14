@@ -9,7 +9,7 @@
             <hr/>
         </div>
         <span id="sub-info">中国·杭州 2024.7.15-7.19</span>
-        <a href="/login" id="start-bt">
+        <a href="https://hub.adventure-x.org/login" id="start-bt">
             <span id="bt-text">开启变革</span>
         </a>
     </div>

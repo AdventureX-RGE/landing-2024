@@ -19,7 +19,7 @@ export default {
             this.useSvg = width > 400;
         }
     },
-    mounted() {
+    beforeMount() {
         this.resetStyle();
     }
 }
