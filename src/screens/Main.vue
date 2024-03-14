@@ -1,15 +1,15 @@
 <template>
 <div class="container fade-in">
     <LogoMenuBarComp/>
-    <div id="info-box">
+    <div id="info-box" class="info-box">
         <span id="title">
             <TitleComp/>
         </span>
-        <div style="width: 6%">
+        <div id="sep">
             <hr/>
         </div>
-        <span id="sub-info">中国·杭州 2024.7.15-7.19</span>
-        <a href="https://hub.adventure-x.org/login" id="start-bt">
+        <span id="sub-info" class="sub-info">中国·杭州 2024.7.15-7.19</span>
+        <a href="https://hub.adventure-x.org/login" id="start-bt" class="start-bt">
             <span id="bt-text">开启变革</span>
         </a>
     </div>
@@ -35,7 +35,6 @@ export default {
     border: rgba(204, 152, 62, 1) 2px solid;
     border-radius: 15px;
     cursor: pointer;
-    margin-top: 3%;
     transition: background-color .3s ease-in-out;
     padding: 10px;
     z-index: 1;
@@ -52,14 +51,13 @@ export default {
 #bt-text {
     font-family: "PingFang SC", serif;
     font-size: 18px;
-    padding: 3px 15px;
+    padding: 2px 17px;
 }
 
 #sub-info {
     font-family: "PingFang SC", serif;
     font-weight: 400;
     text-align: left;
-    font-size: 28px;
 }
 
 #info-box {
@@ -67,18 +65,57 @@ export default {
     top: -15%;
     width: 100%;
     height: 100%;
-    padding-left: 15%;
     flex-direction: column;
     gap: 3%;
     justify-content: center;
-    align-items: flex-start;
+    //align-items: flex-start;
     display: inline-flex;
     flex-shrink: 0;
 }
 
-#title {
-    width: 460px;
-    text-align: left;
-    color: rgba(255, 199, 102, 1);
+@media screen and (min-width: 500px) {
+    .info-box {
+        padding-left: 15%;
+        align-items: flex-start;
+    }
+
+    #sep {
+        width: 6%;
+    }
+
+    #title {
+        width: 460px;
+    }
+
+    .sub-info {
+        font-size: 28px;
+    }
+
+    .start-bt {
+        margin-top: 3%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .info-box {
+        padding-left: 0;
+        align-items: center;
+    }
+
+    #sep {
+        width: 35%;
+    }
+
+    #title {
+        width: 288px;
+    }
+
+    .sub-info {
+        font-size: 20px;
+    }
+
+    .start-bt {
+        margin-top: 10%;
+    }
 }
 </style>

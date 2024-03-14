@@ -1,12 +1,21 @@
 <template>
-    <div class="bg-circle" id="img-container">
+    <div class="bg-circle" id="img-container"
+        :class="{'fade-in': isSmall}"
+    >
         <img src="@/assets/bottomCircle/bottomCircle.webp" alt="">
     </div>
 </template>
 
 <script>
+import {small} from "@/js/widthLevel";
+
 export default {
-    name: "BottomCircleComp"
+    name: "BottomCircleComp",
+    data: () => {
+        return {
+            isSmall: small
+        }
+    }
 }
 </script>
 

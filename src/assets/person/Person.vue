@@ -1,32 +1,28 @@
 <template>
-    <div class="bg fade-in fade-in-delay-1" id="img-container">
-        <img src="@/assets/person/person.webp" alt="" id="inner-img">
+    <div class="bg fade-in fade-in-delay-1"
+        id="img-container"
+        :class="{
+            'large-image-container': isLarge,
+            'small-image-container': isSmall
+        }"
+    >
+        <img src="@/assets/person/person.webp" alt="" id="inner-img"
+            :class="{'hide': isLarge || isSmall}"
+        >
     </div>
 </template>
 
 <script>
+import {large, small} from "@/js/widthLevel";
+
 export default {
     name: "PersonComp",
-    methods: {
-        resetStyle() {
-            let width = document.body.clientWidth;
-            let img = document.querySelector('#inner-img');
-            if (width > 1024) {
-                img.style.display = 'none';
-                img.parentElement.classList.add('large-image-container');
-            } else {
-                img.style.display = '';
-                img.parentElement.classList.remove('large-image-container');
-            }
+    data: () => {
+        return {
+            isLarge: large,
+            isSmall: small
         }
     },
-    mounted() {
-        window.addEventListener('resize', this.resetStyle);
-        this.resetStyle();
-    },
-    beforeDestroy() {
-        window.removeEventListener('resize', this.resetStyle)
-    }
 }
 </script>
 
@@ -37,9 +33,20 @@ export default {
 
 .large-image-container {
     background-size: cover;
-    background-position-y: bottom;
-    background-position-x: right;
-    overflow: visible;
+    background-position: bottom right;
     transform: translateY(2%);
+}
+
+.small-image-container {
+    background-size: cover;
+    background-position: bottom right;
+    transform: translate(15%, 20%) scale(55%);
+    filter: brightness(150%);
+    width: 100%;
+    height: 100%;
+}
+
+.hide {
+    display: none;
 }
 </style>

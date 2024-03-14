@@ -1,13 +1,11 @@
 <template>
 <div id="container" class="container">
-    <Transition>
-        <div class="head">
-            <LogoComp/>
-            <div class="catchword">
-                <CatchWordComp/>
-            </div>
+    <div class="head">
+        <LogoComp/>
+        <div class="catchword">
+            <CatchWordComp/>
         </div>
-    </Transition>
+    </div>
 </div>
 </template>
 
