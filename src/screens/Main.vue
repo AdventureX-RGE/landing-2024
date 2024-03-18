@@ -73,6 +73,12 @@ export default {
     flex-shrink: 0;
 }
 
+@media screen and (min-width: 1024px) {
+    .sub-info {
+        font-size: 28px;
+    }
+}
+
 @media screen and (min-width: 500px) {
     .info-box {
         padding-left: 15%;
@@ -87,12 +93,14 @@ export default {
         width: 460px;
     }
 
-    .sub-info {
-        font-size: 28px;
-    }
-
     .start-bt {
         margin-top: 3%;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 1024px) {
+    .sub-info {
+        font-size: 25px;
     }
 }
 
