@@ -1,13 +1,11 @@
 <template>
 <div id="container" class="container">
-    <Transition>
-        <div class="head">
-            <LogoComp/>
-            <div class="catchword">
-                <CatchWordComp/>
-            </div>
+    <div class="head">
+        <LogoComp/>
+        <div class="catchword">
+            <CatchWordComp/>
         </div>
-    </Transition>
+    </div>
 </div>
 </template>
 
@@ -40,6 +38,9 @@ export default {
     justify-content: center;
     align-items: center;
     animation: head-respiration 3s ease-in-out infinite;
+    @media screen and (max-width: 500px) {
+        transform: translateY(-15%) scale(65%);
+    }
 }
 
 .catchword {

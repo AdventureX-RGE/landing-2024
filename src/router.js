@@ -8,7 +8,10 @@ import FAQ from "@/pages/FAQ.vue";
 const routes = [
     {
         path: '/',
-        component: Index
+        component: Index,
+        meta: {
+            title: "AdventureX｜逃逸计划"
+        }
     },
     {
         path: '/about-adx',
@@ -31,5 +34,12 @@ const routes = [
 const router = new VueRouter({
     routes
 });
+
+router.beforeEach((to, from, next) => {
+    if (to.meta.title) {
+        document.title = to.meta.title;
+    }
+    next();
+})
 
 export default router;
