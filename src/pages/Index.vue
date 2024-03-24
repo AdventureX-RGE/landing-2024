@@ -72,7 +72,9 @@ export default {
             cookies: {
                 hello: "displayHelloTime"
             },
-            showHello: true
+            showHello: true,
+            minLoadTime: 5,
+            afterMinLoadTime: false
         }
     },
     components: {
@@ -90,10 +92,14 @@ export default {
         if (!this.showHello) {
             this.toMainScreen();
         }
+
         document.getElementById('downward-bt').style.display = 'none';
         this.handlers.forEach((h) => {
             window.addEventListener(h.type, h.handler);
         });
+        setTimeout(() => {
+            this.afterMinLoadTime = true;
+        }, this.minLoadTime * 1000);
     },
     beforeDestroy() {
         this.handlers.forEach((h) => {
@@ -120,7 +126,13 @@ export default {
             }
         },
         finishLoading() {
-            this.toMainScreen();
+            if (this.afterMinLoadTime) {
+                this.toMainScreen();
+            } else {
+                setTimeout(() => {
+                    this.finishLoading();
+                }, 100);
+            }
         }
     }
 }
