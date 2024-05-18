@@ -9,8 +9,10 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
+    "prettier": "^3.2.5",
     "vue": "^2.6.14",
     "vue-cookies": "^1.8.3",
+    "vue-i18n": "8",
     "vue-router": "3"
   },
   "devDependencies": {
@@ -41,5 +43,20 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.vue": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
 }

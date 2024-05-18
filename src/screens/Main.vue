@@ -8,9 +8,9 @@
         <div id="sep">
             <hr/>
         </div>
-        <span id="sub-info" class="sub-info">中国·杭州 2024.7.15-7.19</span>
+        <span id="sub-info" class="sub-info">{{ $t('country')+'·'+ $t('city')}} 2024.7.15-7.19</span>
         <a href="https://hub.adventure-x.org/login" id="start-bt" class="start-bt">
-            <span id="bt-text">开启变革</span>
+            <span id="bt-text" :style="{'font-weight': language.indexOf('en')>=0 && 500}">{{$t('joinButton')}}</span>
         </a>
     </div>
 </div>
@@ -22,7 +22,12 @@ import TitleComp from "@/assets/Title.vue";
 
 export default {
     name: "MainScreen",
-    components: {TitleComp, LogoMenuBarComp}
+    components: {TitleComp, LogoMenuBarComp},
+    data(){
+      return {
+        language:navigator.language
+      }
+    }
 }
 </script>
 
@@ -49,13 +54,13 @@ export default {
 }
 
 #bt-text {
-    font-family: "PingFang SC", serif;
+    font-family: "PingFang SC", sans-serif;
     font-size: 18px;
     padding: 2px 17px;
 }
 
 #sub-info {
-    font-family: "PingFang SC", serif;
+    font-family: "PingFang SC", sans-serif;
     font-weight: 400;
     text-align: left;
 }
