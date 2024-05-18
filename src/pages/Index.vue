@@ -127,7 +127,7 @@ export default {
     },
     finishLoading() {
       if (this.afterMinLoadTime) {
-        // this.toMainScreen();
+        this.toMainScreen();
       } else {
         setTimeout(() => {
           this.finishLoading();
