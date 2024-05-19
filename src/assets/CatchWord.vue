@@ -6,23 +6,24 @@
     </template>
     <template v-else>
       <div v-if="language.indexOf('zh')>=0" v-html="zhSmall"></div>
-      <div v-else v-html="enSmall"></div>
+      <div v-else v-html="enLarge"></div>
     </template>
   </div>
 </template>
 
 <script>
 import {small} from "@/js/widthLevel";
-import {enSmall, zhLarge, zhSmall} from '@/assets/epxortSvg'
+import {enSmall, zhLarge, zhSmall, enLarge} from '@/assets/epxortSvg'
 
 export default {
   name: "CatchWordComp",
   data: () => {
     return {
       isSmall: small,
-      zhSmall: zhSmall,
-      zhLarge: zhLarge,
-      enSmall: enSmall,
+      zhSmall,
+      zhLarge,
+      enSmall,
+      enLarge,
       language: navigator.language
     }
   },
