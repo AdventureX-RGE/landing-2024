@@ -1,18 +1,18 @@
 <template>
   <div id="outer-container" class="container">
     <div id="container" class="container">
-      <component :is="screens[screenIndex].screen"/>
+      <component :is="currentScreen[screenIndex].screen"/>
     </div>
     <DownwardButtonComp :action="toMainScreen" class="bottom-bt bottom-bt-bounce-animation" id="downward-bt"/>
-    <div v-for="(screen, index) in this.screens" :key="screen.screen.name+index" class="abs-max-container z-bg">
-      <div v-if="index === screenIndex">
+    <div v-for="(screen, index) in currentScreen" :key="screen.screen.name" class="abs-max-container z-bg">
+      <template v-if="index === screenIndex">
         <div v-for="bg in screen.bg" :id="bg.name" :key="bg.name">
           <component
               :is="bg"
               :key="bg.name"
           />
         </div>
-      </div>
+      </template>
       <div v-else>
         <div v-for="bg in screen.bg" :id="bg.name" :key="bg.name" class="hidden">
           <component
@@ -33,7 +33,11 @@ import DownwardButtonComp from "@/components/DownwardButton.vue";
 import DragonComp from "@/assets/dragon/Dragon.vue";
 import PersonComp from "@/assets/person/Person.vue";
 import CloudComp from "@/assets/cloud/Cloud.vue";
+import DetailScreen from "@/screens/Detail.vue";
 import {small} from "@/js/widthLevel";
+import DetailDragon from "@/assets/dragon/DetailDragon.vue";
+import ActiveScreen from '@/screens/Active.vue'
+import PrizeScreen from '@/screens/Prize.vue'
 
 export default {
   name: "IndexPage",
@@ -51,18 +55,21 @@ export default {
         {
           screen: MainScreen,
           bg: [BottomCircleComp, PersonComp]
+        },
+        {
+          screen: DetailScreen,
+          bg: [DetailDragon]
+        },
+        {
+          screen: ActiveScreen,
+          bg: [DetailDragon]
+        },
+        {
+          screen: PrizeScreen
         }
       ],
       screenIndex: 0,
       handlers: [
-        {
-          type: "keydown",
-          handler: this.handleSpaceNextScreen
-        },
-        {
-          type: "wheel",
-          handler: this.handleScrollNextScreen
-        },
         {
           type: "load",
           handler: this.finishLoading
@@ -73,25 +80,59 @@ export default {
       },
       showHello: true,
       minLoadTime: 5,
-      afterMinLoadTime: false
+      afterMinLoadTime: false,
+      startY: 0,
     }
   },
   components: {
     DownwardButtonComp,
   },
-  beforeMount() {
+  computed: {
+    currentScreen() {
+      const res = [...this.screens]
+      res.splice(1, 2, this.screens[small ? 2 : 1])
+      console.log(res, 'res')
+      return res
+    }
+  },
+  created() {
     if (this.$cookies.isKey(this.cookies.hello)) {
       this.showHello = false;
     } else {
       this.$cookies.set(this.cookies.hello, Date.now(), '1d');
       this.showHello = true;
     }
-  },
-  mounted() {
     if (!this.showHello) {
       this.toMainScreen();
     }
-
+    window.onwheel = (e) => {
+      if (!this.showHello) {
+        if (e.deltaY > 0) {
+          this.changePage('increment')
+        } else {
+          this.changePage('decrement')
+        }
+      }
+    }
+    const touchstart = (event) => {
+      if (!this.showHello) {
+        this.startY = event.touches[0].clientY;
+      }
+    }
+    const touchEnd = (e) => {
+      if (!this.showHello) {
+        const distance = e.changedTouches[0].clientY - this.startY;
+        if (distance > 10) {
+          this.changePage('decrement')
+        } else if (distance < -10) {
+          this.changePage('increment')
+        }
+      }
+    }
+    document.addEventListener('touchstart', touchstart, false);
+    document.addEventListener('touchend', touchEnd, false)
+  },
+  mounted() {
     document.getElementById('downward-bt').style.display = 'none';
     this.handlers.forEach((h) => {
       window.addEventListener(h.type, h.handler);
@@ -106,28 +147,33 @@ export default {
     });
   },
   methods: {
+    changePage(type) {
+      switch (type) {
+        case 'increment':
+          if (this.screenIndex + 1 === this.currentScreen.length) {
+            this.screenIndex = this.currentScreen.length - 1
+          } else {
+            this.screenIndex = this.screenIndex + 1
+          }
+          break
+        case 'decrement':
+          if (this.screenIndex - 1 === 0) {
+            this.screenIndex = 1
+          } else {
+            this.screenIndex = this.screenIndex - 1
+          }
+          break
+      }
+    },
     toMainScreen() {
-      console.log(small)
-      if (small) {
-        this.screenIndex = 2;
-      } else {
-        this.screenIndex = 1;
-      }
-    },
-    handleSpaceNextScreen(event) {
-      if (event.key === " ") {
-        this.toMainScreen();
-      }
-    },
-    handleScrollNextScreen(event) {
-      let downward = event.deltaY > 0;
-      if (downward && event.deltaY >= 25) {
-        this.toMainScreen();
-      }
+      this.screenIndex = 1;
     },
     finishLoading() {
       if (this.afterMinLoadTime) {
-        this.toMainScreen();
+        if (this.showHello) {
+          this.toMainScreen();
+          this.showHello = false;
+        }
       } else {
         setTimeout(() => {
           this.finishLoading();
