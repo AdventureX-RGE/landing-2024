@@ -106,6 +106,7 @@ export default {
       this.toMainScreen();
     }
     window.onwheel = (e) => {
+      e.preventDefault()
       if (!this.showHello) {
         if (e.deltaY > 0) {
           this.changePage('increment')
