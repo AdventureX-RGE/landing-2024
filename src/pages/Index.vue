@@ -65,7 +65,8 @@ export default {
           bg: [DetailDragon]
         },
         {
-          screen: PrizeScreen
+          screen: PrizeScreen,
+          bg: []
         }
       ],
       screenIndex: 0,
@@ -82,6 +83,10 @@ export default {
       minLoadTime: 5,
       afterMinLoadTime: false,
       startY: 0,
+      scrollAccumulate: 0,
+      lastScroll: Date.parse(new Date()),
+      scrollDelayTime: 2000,
+      scrollMinDisplaceMent: 1000,
     }
   },
   components: {
@@ -108,6 +113,12 @@ export default {
     window.onwheel = (e) => {
       e.preventDefault()
       if (!this.showHello) {
+          this.scrollAccumulate += e.deltaY;
+          if (this.scrollAccumulate > -this.scrollMinDisplaceMent && this.scrollAccumulate < this.scrollMinDisplaceMent) return;
+          console.log(Date.parse(new Date()) - this.lastScroll);
+          if (Date.parse(new Date()) - this.lastScroll < this.scrollDelayTime) return;
+          this.scrollAccumulate = 0;
+          this.lastScroll = Date.parse(new Date());
         if (e.deltaY > 0) {
           this.changePage('increment')
         } else {
@@ -116,11 +127,13 @@ export default {
       }
     }
     const touchstart = (event) => {
+        event.preventDefault();
       if (!this.showHello) {
         this.startY = event.touches[0].clientY;
       }
     }
     const touchEnd = (e) => {
+        e.preventDefault();
       if (!this.showHello) {
         const distance = e.changedTouches[0].clientY - this.startY;
         if (distance > 10) {
@@ -130,8 +143,8 @@ export default {
         }
       }
     }
-    document.addEventListener('touchstart', touchstart, false);
-    document.addEventListener('touchend', touchEnd, false)
+    document.addEventListener('touchstart', touchstart, {passive: false});
+    document.addEventListener('touchend', touchEnd, {passive: false});
   },
   mounted() {
     document.getElementById('downward-bt').style.display = 'none';
