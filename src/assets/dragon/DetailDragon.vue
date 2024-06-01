@@ -15,7 +15,6 @@ export default {
       const {middle, small} = require('@/js/widthLevel')
       this.isMiddle = middle
       this.isSmall = small
-      console.log(`isMiddle:${this.isMiddle}, isSmall:${this.isSmall}`)
     }
   },
   mounted() {
@@ -40,8 +39,10 @@ export default {
 }
 
 .bg img {
-  width: 75%;
+  width: 55%;
   right: 0;
+  mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0));
+  -webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
 }
 
 .bg img.small-screen {

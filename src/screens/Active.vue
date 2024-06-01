@@ -48,7 +48,12 @@ export default {
   text-align: left;
 }
 
+.sub-group {
+  width: 100%;
+}
+
 .sub-title {
+  width: 100%;
   padding-left: 6%;
   position: relative;
   margin-bottom: 1vw;
@@ -57,7 +62,7 @@ export default {
 .sub-title::before {
   content: ''; /* 设置引号内容 */
   display: inline-block;
-  width: 3%;
+  width: 2.8%;
   aspect-ratio: 1/1;
   border-radius: 50%;
   background-color: #FFC766;

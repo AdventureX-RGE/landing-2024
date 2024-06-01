@@ -6,7 +6,36 @@ export default {
   components: {LogoMenuBarComp},
   data() {
     return {
-      screenWidth: window.screen.width
+      screenWidth: window.screen.width,
+      subTitle: null,
+      subInfo: null,
+      subExplanation: null,
+      isInit: true
+    }
+  },
+  mounted() {
+    if (this.isInit) {
+      this.resizeFontSize()
+      this.isInit = false
+    } else {
+      window.removeEventListener('resize', this.resizeFontSize)
+    }
+    window.addEventListener('resize', this.resizeFontSize)
+  },
+  methods: {
+    resizeFontSize() {
+      const infoBox = document.body.querySelector('#info-box')
+      const title = document.body.querySelector('.sub-title')
+      const info = document.body.querySelector('.sub-info')
+      const explanation = document.body.querySelector('.sub-explanation')
+      if (!!infoBox && !!title && !!info && !!explanation) {
+        const titleSize = infoBox.clientWidth / 10
+        const infoSize = infoBox.clientWidth / 16
+        const explanationSize = infoBox.clientWidth / 35
+        title.style.fontSize = `${titleSize > 102 ? 102 : titleSize}px`
+        info.style.fontSize = `${infoSize > 51 ? 51 : infoSize}px`
+        explanation.style.fontSize = `${explanationSize > 12 ? 12 : explanationSize}px`
+      }
     }
   },
 }
@@ -16,9 +45,9 @@ export default {
   <div class="container fade-in">
     <LogoMenuBarComp/>
     <div id="info-box" class="info-box">
-      <div class="sub-title">1, 000, 000+ RMB</div>
-      <div class="sub-info">{{ $t('prize') }}</div>
-      <div class="sub-explanation">*这计算了所有现金、代金券、或其他形式的奖励</div>
+      <div class="sub-title" ref="subTitle">1, 000, 000+ RMB</div>
+      <div class="sub-info" ref="subInfo">{{ $t('prize') }}</div>
+      <div class="sub-explanation" ref="subExplanation">*这计算了所有现金、代金券、或其他形式的奖励</div>
     </div>
   </div>
 </template>
@@ -35,7 +64,6 @@ export default {
   align-items: center;
   display: inline-flex;
   flex-shrink: 0;
-  text-align: left;
   padding-top: 15%;
 }
 
@@ -43,14 +71,12 @@ export default {
   font-family: "SF Pro", sans-serif;
   font-weight: 700;
   background: linear-gradient(to right, #E5A22F, #FF7324);
-  font-size: 102px;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .sub-info {
   font-family: "PingFang SC", sans-serif;
-  font-size: 35px;
 }
 
 .sub-explanation {
@@ -58,7 +84,6 @@ export default {
   bottom: 25%;
   justify-self: flex-end;
   color: #999999;
-  font-size: 14px;
 }
 
 @media screen and (min-width: 1024px) {
@@ -70,26 +95,12 @@ export default {
 }
 
 @media screen and (min-width: 500px) and (max-width: 1024px) {
-  .sub-title {
-    font-size: 108px;
-  }
+
 }
 
 @media screen and (max-width: 500px) {
   #info-box {
     padding-top: 45%;
-  }
-
-  .sub-title {
-    font-size: 40px;
-  }
-
-  .sub-info {
-    font-size: 20px;
-  }
-
-  .sub-explanation {
-    font-size: 12px;
   }
 }
 </style>

@@ -5,12 +5,23 @@
     </div>
     <DownwardButtonComp :action="toMainScreen" class="bottom-bt bottom-bt-bounce-animation" id="downward-bt"/>
     <div v-for="(screen, index) in currentScreen" :key="screen.screen.name" class="abs-max-container z-bg">
-      <template v-if="index === screenIndex">
+      <template
+          v-if="screenIndex === reuseBackground.index || index === screenIndex">
         <div v-for="bg in screen.bg" :id="bg.name" :key="bg.name">
-          <component
-              :is="bg"
-              :key="bg.name"
-          />
+          <template v-if="reuseBackground.key === bg.name && screenIndex === reuseBackground.index ">
+            <component
+                :is="bg"
+                :key="bg.name"
+            />
+          </template>
+          <template v-else>
+            <template v-if="index === screenIndex">
+              <component
+                  :is="bg"
+                  :key="bg.name"
+              />
+            </template>
+          </template>
         </div>
       </template>
       <div v-else>
@@ -62,7 +73,8 @@ export default {
         },
         {
           screen: ActiveScreen,
-          bg: [DetailDragon]
+          bg: [],
+          isReuseBg: 'DetailDragon'
         },
         {
           screen: PrizeScreen,
@@ -96,8 +108,18 @@ export default {
     currentScreen() {
       const res = [...this.screens]
       res.splice(1, 2, this.screens[small ? 2 : 1])
-      console.log(res, 'res')
       return res
+    },
+    reuseBackground() {
+      console.log('reuseBackground')
+      if (Array.isArray(this.currentScreen) && !!this.screenIndex) {
+        console.log(this.currentScreen.map(item => !!item.isReuseBg && item.isReuseBg).filter(item => item).join(), 'reuse')
+        return {
+          key: this.currentScreen.map(item => !!item.isReuseBg && item.isReuseBg).filter(item => item).join(),
+          index: this.currentScreen.findIndex(item => !!item.isReuseBg)
+        }
+      }
+      return ''
     }
   },
   created() {
@@ -113,12 +135,12 @@ export default {
     window.onwheel = (e) => {
       e.preventDefault()
       if (!this.showHello) {
-          this.scrollAccumulate += e.deltaY;
-          if (this.scrollAccumulate > -this.scrollMinDisplaceMent && this.scrollAccumulate < this.scrollMinDisplaceMent) return;
-          console.log(Date.parse(new Date()) - this.lastScroll);
-          if (Date.parse(new Date()) - this.lastScroll < this.scrollDelayTime) return;
-          this.scrollAccumulate = 0;
-          this.lastScroll = Date.parse(new Date());
+        this.scrollAccumulate += e.deltaY;
+        if (this.scrollAccumulate > -this.scrollMinDisplaceMent && this.scrollAccumulate < this.scrollMinDisplaceMent) return;
+        //console.log(Date.parse(new Date()) - this.lastScroll);
+        if (Date.parse(new Date()) - this.lastScroll < this.scrollDelayTime) return;
+        this.scrollAccumulate = 0;
+        this.lastScroll = Date.parse(new Date());
         if (e.deltaY > 0) {
           this.changePage('increment')
         } else {
@@ -127,13 +149,13 @@ export default {
       }
     }
     const touchstart = (event) => {
-        event.preventDefault();
+      event.preventDefault();
       if (!this.showHello) {
         this.startY = event.touches[0].clientY;
       }
     }
     const touchEnd = (e) => {
-        e.preventDefault();
+      e.preventDefault();
       if (!this.showHello) {
         const distance = e.changedTouches[0].clientY - this.startY;
         if (distance > 10) {
