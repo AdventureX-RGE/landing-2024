@@ -60,11 +60,10 @@ export default {
   height: 100%;
   flex-direction: column;
   gap: 3%;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  display: inline-flex;
+  display: flex;
   flex-shrink: 0;
-  padding-top: 15%;
 }
 
 .sub-title {
@@ -81,7 +80,7 @@ export default {
 
 .sub-explanation {
   position: absolute;
-  bottom: 25%;
+  bottom: 10%;
   justify-self: flex-end;
   color: #999999;
 }
@@ -99,8 +98,6 @@ export default {
 }
 
 @media screen and (max-width: 500px) {
-  #info-box {
-    padding-top: 45%;
-  }
+
 }
 </style>

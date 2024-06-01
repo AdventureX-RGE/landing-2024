@@ -113,7 +113,7 @@ export default {
     reuseBackground() {
       console.log('reuseBackground')
       if (Array.isArray(this.currentScreen) && !!this.screenIndex) {
-        console.log(this.currentScreen.map(item => !!item.isReuseBg && item.isReuseBg).filter(item => item).join(), 'reuse')
+        // console.log(this.currentScreen.map(item => !!item.isReuseBg && item.isReuseBg).filter(item => item).join(), 'reuse')
         return {
           key: this.currentScreen.map(item => !!item.isReuseBg && item.isReuseBg).filter(item => item).join(),
           index: this.currentScreen.findIndex(item => !!item.isReuseBg)

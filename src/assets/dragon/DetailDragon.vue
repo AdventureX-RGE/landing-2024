@@ -29,6 +29,13 @@ export default {
 </template>
 
 <style scoped>
+#img-container {
+  object-fit: contain;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
 .bg {
   max-height: 100vh;
   overflow: hidden;
@@ -57,6 +64,17 @@ export default {
   width: auto;
   height: auto;
   left: 67%;
+}
+
+@media screen and (min-width: 1024px) {
+  #img-container img {
+    position: relative;
+    object-fit: contain;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+  }
 }
 
 @media screen and (max-width: 1024px) {
