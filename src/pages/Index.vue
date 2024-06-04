@@ -98,7 +98,7 @@ export default {
       scrollAccumulate: 0,
       lastScroll: Date.parse(new Date()),
       scrollDelayTime: 2000,
-      scrollMinDisplaceMent: 1000,
+      scrollMinDisplaceMent: 800,
     }
   },
   components: {
