@@ -149,13 +149,13 @@ export default {
       }
     }
     const touchstart = (event) => {
-      event.preventDefault();
+      // event.preventDefault();
       if (!this.showHello) {
         this.startY = event.touches[0].clientY;
       }
     }
     const touchEnd = (e) => {
-      e.preventDefault();
+      // e.preventDefault();
       if (!this.showHello) {
         const distance = e.changedTouches[0].clientY - this.startY;
         if (distance > 10) {
