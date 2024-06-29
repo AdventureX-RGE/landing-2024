@@ -98,7 +98,7 @@ export default {
       scrollAccumulate: 0,
       lastScroll: Date.parse(new Date()),
       scrollDelayTime: 2000,
-      scrollMinDisplaceMent: 1000,
+      scrollMinDisplaceMent: 800,
     }
   },
   components: {
@@ -149,13 +149,13 @@ export default {
       }
     }
     const touchstart = (event) => {
-      event.preventDefault();
+      // event.preventDefault();
       if (!this.showHello) {
         this.startY = event.touches[0].clientY;
       }
     }
     const touchEnd = (e) => {
-      e.preventDefault();
+      // e.preventDefault();
       if (!this.showHello) {
         const distance = e.changedTouches[0].clientY - this.startY;
         if (distance > 10) {
