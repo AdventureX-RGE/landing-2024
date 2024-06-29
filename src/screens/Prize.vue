@@ -47,7 +47,7 @@ export default {
     <div id="info-box" class="info-box">
       <div class="sub-title" ref="subTitle">1, 000, 000+ RMB</div>
       <div class="sub-info" ref="subInfo">{{ $t('prize') }}</div>
-      <div class="sub-explanation" ref="subExplanation">*这计算了所有现金、代金券、或其他形式的奖励</div>
+      <div class="sub-explanation" ref="subExplanation">{{ $t('prizeDesc') }}</div>
     </div>
   </div>
 </template>
