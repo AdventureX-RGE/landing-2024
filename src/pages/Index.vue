@@ -45,6 +45,7 @@ import DragonComp from "@/assets/dragon/Dragon.vue";
 import PersonComp from "@/assets/person/Person.vue";
 import CloudComp from "@/assets/cloud/Cloud.vue";
 import DetailScreen from "@/screens/Detail.vue";
+import PartnersScreen from "@/screens/Partners.vue";
 import {small} from "@/js/widthLevel";
 import DetailDragon from "@/assets/dragon/DetailDragon.vue";
 import ActiveScreen from '@/screens/Active.vue'
@@ -79,6 +80,10 @@ export default {
         {
           screen: PrizeScreen,
           bg: []
+        },
+        {
+          screen: PartnersScreen,
+          bg: []
         }
       ],
       screenIndex: 0,
@@ -111,7 +116,6 @@ export default {
       return res
     },
     reuseBackground() {
-      console.log('reuseBackground')
       if (Array.isArray(this.currentScreen) && !!this.screenIndex) {
         // console.log(this.currentScreen.map(item => !!item.isReuseBg && item.isReuseBg).filter(item => item).join(), 'reuse')
         return {
