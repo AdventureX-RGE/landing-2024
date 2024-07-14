@@ -5,6 +5,7 @@ const zh = {
     city: '杭州',
     country: "中国",
     joinButton: '开启变革',
+    nexus: '通行证',
     email: '邮箱',
     mobile: '手机',
     detailTitle: '中国年轻人的第一场黑客松。',
@@ -23,6 +24,7 @@ const en = {
     city: 'HZ',
     country: 'CHINA',
     joinButton: 'Apply Now',
+    nexus: 'Nexus',
     email: 'Email',
     mobile: 'Mobile',
     detailTitle: 'The first youths hackathon in China',
@@ -41,7 +43,7 @@ Vue.use(vueI18nEsm)
 
 const userLanguage = navigator.language?.indexOf('zh') >= 0 ? 'zh' : 'en'
 const i18n = new vueI18nEsm({
-    messages: {en, zh},
+    messages: { en, zh },
     locale: userLanguage
 })
 
