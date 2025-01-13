@@ -8,14 +8,15 @@
       <div id="sep">
         <hr />
       </div>
-      <span id="sub-info" class="sub-info"
-        >{{ $t("country") + "·" + $t("city") }} 2024.7.15-7.19</span
-      >
+      <span id="sub-info" class="sub-info">
+        <!-- {{ $t("country") + "·" + $t("city") }} 2024.7.15-7.19 -->
+        2025 {{ $t("comingSoon") }}
+      </span>
       <div style="display: flex; gap: 10px">
         <a
           href="https://hub.adventure-x.org/login"
           id="start-bt"
-          class="start-bt"
+          class="start-bt disabled-start-bt"
         >
           <span
             id="bt-text"
@@ -23,7 +24,11 @@
             >{{ $t("joinButton") }}</span
           >
         </a>
-        <a href="https://nexus.adventure-x.org" id="start-bt" class="start-bt">
+        <a
+          href="https://nexus.adventure-x.org"
+          id="start-bt"
+          class="start-bt disabled-start-bt"
+        >
           <span
             id="bt-text"
             :style="{ 'font-weight': language.indexOf('en') >= 0 && 500 }"
@@ -72,6 +77,12 @@ export default {
   background-color: rgba(102, 90, 70, 1);
 }
 
+.disabled-start-bt {
+  background-color: rgba(0, 0, 0, .1) !important;
+  border-color: rgba(128, 128, 128, 1) !important;
+  cursor: not-allowed !important;
+}
+
 #bt-text {
   font-family: "PingFang SC", sans-serif;
   font-size: 18px;
@@ -92,7 +103,7 @@ export default {
   flex-direction: column;
   gap: 3%;
   justify-content: center;
-  //align-items: flex-start;
+  /* align-items: flex-start; */
   display: inline-flex;
   flex-shrink: 0;
 }
