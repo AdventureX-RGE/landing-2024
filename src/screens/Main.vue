@@ -79,8 +79,9 @@ export default {
 
 .disabled-start-bt {
   background-color: rgba(0, 0, 0, .1) !important;
-  border-color: rgba(128, 128, 128, 1) !important;
-  cursor: not-allowed !important;
+  border-color: rgb(58, 58, 58) !important;
+  color: rgb(152, 152, 152) !important;
+  pointer-events: none !important;
 }
 
 #bt-text {
