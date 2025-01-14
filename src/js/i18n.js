@@ -17,7 +17,8 @@ const zh = {
     participantTitle: `200+ 参与者`,
     participantDescription: `我们将招募 200 名 16-26 岁的“超级青年”。`,
     prize: '奖金总额',
-    prizeDesc: '*这计算了所有现金、代金券、或其他形式的奖励'
+    prizeDesc: '*这计算了所有现金、代金券、或其他形式的奖励',
+    comingSoon: '敬请期待'
 }
 
 const en = {
@@ -36,7 +37,8 @@ const en = {
     participantTitle: `200+ Hackers`,
     participantDescription: `We will be recruiting 200 "Super Youth" aged 16-26.`,
     prize: 'In Prize',
-    prizeDesc: '*This counts all cash, credits, or other forms of rewards'
+    prizeDesc: '*This counts all cash, credits, or other forms of rewards',
+    comingSoon: 'Coming Soon'
 }
 
 Vue.use(vueI18nEsm)
