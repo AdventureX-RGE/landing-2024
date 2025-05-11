@@ -1,11 +1,17 @@
+[variables]
+NODE_ENV = "development"
+
 [phases.setup]
 nixPkgs = ["nodejs_18", "yarn-1_x"]
 
 [phases.install]
-cmds = ["yarn install --frozen-lockfile"]
+cmds = [
+  "corepack enable",
+  "yarn install --frozen-lockfile"
+]
 
 [phases.build]
-cmds = ["yarn run build"]
+cmds = ["yarn build"]
 
-[phases.start]
-cmds = ["yarn start"]
+[start]
+cmd = "yarn serve"
